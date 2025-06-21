@@ -1,0 +1,1 @@
+// verifySignature.ts placeholder
