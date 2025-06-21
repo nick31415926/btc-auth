@@ -2,7 +2,6 @@ import express from 'express';
 import dotenv from 'dotenv';
 import challengeRoute from './routes/challenge';
 import verifyRoute from './routes/verify';
-
 dotenv.config();
 
 const app = express();

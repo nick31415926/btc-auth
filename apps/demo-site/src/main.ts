@@ -1,7 +1,8 @@
+console.debug("Top of File main.ts demoe-site");
 import { DecodedJWT } from '@btc-auth/sdk';
 import { getSession, btcAuthLogin, isSessionValid } from '../../../packages/sdk/src/index';
 import { isUnisatAvailable } from '../../../packages/sdk/src/wallet';
-
+console.debug("Loaded main.ts demo-site");
 const root = document.getElementById('app')!;
 root.innerHTML = `
   <h1>BTC Auth Demo</h1>

@@ -1,5 +1,11 @@
-const jwt_decode = require('jwt-decode') as (token: string) => DecodedJWT;
+console.debug("[btc-auth-sdk] Loaded SDK — top of file");
+
+import * as jwt_decode_ns from "jwt-decode";
+const jwt_decode = (jwt_decode_ns as any).default || jwt_decode_ns;
+
 import { signMessageWithUnisat } from './signer';
+
+console.debug("[btc-auth-sdk] After imports");
 
 export type DecodedJWT = {
   exp: number;
@@ -37,11 +43,7 @@ export async function btcAuthLogin(serverUrl: string) {
 export function getSession() {
   const token = localStorage.getItem("btcAuthToken");
   if (!token) return null;
-  try {
-    return jwt_decode(token) as DecodedJWT;
-  } catch {
-    return null;
-  }
+  return jwt_decode(token) as DecodedJWT;
 }
 export function isSessionValid(): boolean {
   const session = getSession();

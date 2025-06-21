@@ -6,7 +6,7 @@ export async function signMessageWithUnisat(message: string): Promise<{ address:
     throw new Error("Unisat wallet not detected.");
   }
 
-  const address = await unisat.getAccounts().then(a => a[0]);
+  const address = await unisat.getAccounts().then((a: string[]) => a[0]);
   const signature = await unisat.signMessage(message);
 
   return { address, signature };
