@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@btc-auth/sdk": ["../../packages/sdk/src"]
+    },
+    "rootDir": "../../"
+  },
+  "include": ["src", "../../packages/sdk/src/**/*"]
+}

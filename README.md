@@ -42,6 +42,27 @@ User Wallet       ─────────────┐
 
 ---
 
+## 🛠️ Developer Notes
+
+### Verifying a Signature
+
+```ts
+import { verifySignature } from './services/verifySignature';
+
+const isValid = verifySignature(address, signature, message);
+```
+
+### Storing a Challenge
+
+```ts
+import { storeChallenge, getChallenge } from './services/challengeStore';
+
+await storeChallenge(address, challenge);
+const stored = await getChallenge(address);
+```
+
+---
+
 ## 🦊 Unisat Wallet Support
 
 BTC Auth integrates with [Unisat Wallet](https://unisat.io/) for secure Bitcoin-based login using both the browser extension and mobile app.
@@ -98,13 +119,30 @@ pnpm dev
 
 ---
 
+## 🧰 Monorepo Structure
+
+This project uses a `pnpm` workspace layout:
+
+```
+/btc-auth
+├── apps/            # Frontend applications (e.g., demo site)
+├── packages/        # Core libraries and backend
+├── shared/          # Type definitions
+├── tsconfig.json    # Project references root
+├── pnpm-workspace.yaml
+```
+
+---
+
 ## 💻 Project Structure
 
 ```
 btc-auth/
 ├── packages/
-│   ├── sdk/         # Frontend SDK for BTC Auth
-│   └── server/      # Express backend for challenge/verify
+│   ├── sdk/             # Frontend SDK for BTC Auth
+│   └── server/          # Express backend for challenge/verify
+│       ├── services/    # Core services like verifySignature and challengeStore
+│       └── utils.ts     # Common cryptographic utilities
 ├── apps/
 │   └── demo-site/   # Example website using BTC Auth
 ├── shared/          # Shared types and utilities

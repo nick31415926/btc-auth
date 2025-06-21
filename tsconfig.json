@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@btc-auth/sdk": ["packages/sdk/src"]
+      },
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true
+    },
+    "include": ["packages", "apps"],
+    "exclude": ["node_modules"],
+    "references": [
+      { "path": "packages/sdk" },
+      { "path": "packages/server" },
+      { "path": "apps/demo-site" }
+    ]
+  }
